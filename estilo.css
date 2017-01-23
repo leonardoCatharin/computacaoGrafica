@@ -1,0 +1,47 @@
+.corpo{
+    background-color: white;
+}
+
+.container{
+
+}
+.top-transformacoes{
+    overflow: hidden;
+}
+.left-ferramentas{
+    padding-left: 0px!important;
+}
+.buttons{
+    margin-right: 48px;
+    margin-bottom: 12px;
+    text-align: center;
+    float: left;
+    overflow: hidden !important;
+
+}
+.buttons button{
+    overflow: hidden !important;
+    font-size: 12pt!important;
+    width: 164px;
+    height: 80px !important;
+}
+.buttons button img{
+    width: 35px;
+    height: 35px;
+}
+
+.buttons button i{
+    font-size: 20px;
+}
+.canvas{
+    border: 1px solid black;
+    width: 800px;
+    height: 480px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.texto-observacao{
+    font-size: 10px;
+}
