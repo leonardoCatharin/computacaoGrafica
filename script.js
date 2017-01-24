@@ -177,7 +177,7 @@ function criaTriangulo(p1, p2, p3, canvas, func) {
 
 /* Função utilizada para desenhar retângulos no canvas;
  * Desenha e remove o cursor de desenho e desabilita a ferramenta de desenho*/
-function criaRetangulo(p1A, p2A, canvas, func, rect){
+function criaRetangulo(p1, p2, canvas, func, rect){
     var contexto = canvas.getContext('2d');
 
     var p3 = {
@@ -214,7 +214,7 @@ function criaRetangulo(p1A, p2A, canvas, func, rect){
     desabilitaFerramenta(canvas, func);
 }
 
-function translacao(p1, p2, canvas, func){
+function translacao(p1A, p2A, canvas, func){
     var cliquePontos = [];
     var listaDeObjetosTransladados = [];
 
