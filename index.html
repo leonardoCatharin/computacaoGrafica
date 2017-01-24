@@ -12,7 +12,7 @@
 
 
     <!--scripts-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="script.js"></script>
 </head>
 <body class="corpo">
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-12 top-transformacoes">
             <div class="buttons">
-                <button id="clear" onclick="limpaCanvas()">
+                <button id="BtnClear">
                     <i class="glyphicon glyphicon-erase"></i> <br>
                     Clear
                 </button>
@@ -59,26 +59,26 @@
         <div class="col-md-12">
             <div class="col-md-2 left-ferramentas">
                 <div class="buttons">
-                    <button id="linha" onclick="criaLinha()">
-                        <img src="img/line.png" alt="comando linha" /> <br>
+                    <button id="BtnLinha">
+                        <img src="img/line.png" alt="comando linha"/> <br>
                         Linha
                     </button>
                 </div>
                 <div class="buttons">
-                    <button id="triangulo">
+                    <button id="BtnTriangulo">
                         <img src="img/triangulo.png" alt="comando linha" /> <br>
                         Triângulo
                     </button>
                 </div>
                 <div class="buttons">
-                    <button id="retangulo">
+                    <button id="BtnRetangulo">
                         <img src="img/retangulo.png" alt="comando linha" /> <br>
                         Retângulo
                     </button>
                 </div>
             </div>
             <div class="col-md-10">
-                <canvas id="canvas" class="canvas"></canvas>
+                <canvas id="canvas" width="800" height="480" class="canvas"></canvas>
                 <p class="texto-observacao"><i>Resolução: 800px 480px</i></p>
             </div>
         </div>
