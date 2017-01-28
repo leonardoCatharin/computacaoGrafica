@@ -1,6 +1,7 @@
 /*Globais*/
 var arrayPontos = [];
 var listaObjetos = [];
+var idObjetos = 0;
 var listaObjetosSelecionados = [];
 var canvas;
 var func;
@@ -18,8 +19,10 @@ function main() {
     var btnTriangulo = document.getElementById('BtnTriangulo');
     var btnRetangulo = document.getElementById('BtnRetangulo');
     var btnTranslacao = document.getElementById('BtnTranslacao');
+    var btnRotacao = document.getElementById('BtnRotacao');
 
     canvas = document.getElementById('canvas');
+    var rect = canvas.getBoundingClientRect();
 
     btnClear.addEventListener('click', function (e) {
         limpaCanvas();
@@ -28,8 +31,6 @@ function main() {
     btnLinha.addEventListener('click', function(e){
         habilitaFerramenta("linha");
         canvas.addEventListener('click',func = function(e) {
-
-            var rect = this.getBoundingClientRect();
 
             var ponto = {
                 x : e.clientX - rect.left,
@@ -49,8 +50,6 @@ function main() {
         habilitaFerramenta("triangulo");
         canvas.addEventListener('click',func = function(e) {
 
-            var rect = this.getBoundingClientRect();
-
             var ponto = {
                 x : e.clientX - rect.left,
                 y : e.clientY - rect.top
@@ -69,8 +68,6 @@ function main() {
          habilitaFerramenta("retangulo");
          canvas.addEventListener('click',func = function(e) {
 
-             var rect = this.getBoundingClientRect();
-
              var ponto = {
                  x : e.clientX - rect.left,
                 y : e.clientY - rect.top
@@ -85,12 +82,26 @@ function main() {
 
      }, false);
 
+    btnRotacao.addEventListener('click', function (e){
+        habilitaFerramenta("rotacao");
+        canvas.addEventListener('click',func = function(e) {
+
+            var ponto = {
+                x : e.clientX - rect.left,
+                y : e.clientY - rect.top
+            };
+
+            arrayPontos.push(ponto);
+            if(arrayPontos.length == 2){
+                rotacao(arrayPontos[0], arrayPontos[1], canvas, func);
+                arrayPontos = [];
+            }
+        } ,false);
+    }, false);
+
     btnTranslacao.addEventListener('click', function (e){
         habilitaFerramenta("translacao");
         canvas.addEventListener('click',func = function(e) {
-
-            var rect = this.getBoundingClientRect();
-
             var ponto = {
                 x : e.clientX - rect.left,
                 y : e.clientY - rect.top
@@ -131,6 +142,8 @@ function habilitaFerramenta(tool) {
 function limpaCanvas() {
     var altera_canvas = document.getElementById("canvas");
     altera_canvas.width = altera_canvas.width;
+    // listaObjetos = [];
+    // idObjetos = 0;
 }
 
 /* Função utilizada para desenhar linhas no canvas;
@@ -142,6 +155,7 @@ function criaLinha(p1, p2, canvas, func){
     contexto.stroke();
 
     listaObjetos.push({
+        id: idObjetos++,
         tipo: "linha",
         ponto1: p1,
         ponto2: p2
@@ -167,6 +181,7 @@ function criaTriangulo(p1, p2, p3, canvas, func) {
 
 
     listaObjetos.push({
+        id: idObjetos++,
         tipo: "triangulo",
         ponto1: p1,
         ponto2: p2,
@@ -205,6 +220,7 @@ function criaRetangulo(p1, p2, canvas, func, rect){
     contexto.stroke();
 
     listaObjetos.push({
+        id: idObjetos++,
         tipo: "retangulo",
         ponto1: p1,
         ponto2: p2,
@@ -214,9 +230,83 @@ function criaRetangulo(p1, p2, canvas, func, rect){
     desabilitaFerramenta(canvas, func);
 }
 
+function rotacao(p1R, p2R, canvas, func){
+    var cliquePontos = [];
+    var rect = canvas.getBoundingClientRect();
+
+    desenhaAreaSelecao(p1R, p2R, canvas, func);
+
+    destacaPontos(listaObjetosSelecionados,canvas);
+    habilitaFerramenta("rotacao");
+
+    /* Pega ponto de referência e ponto destino */
+    canvas.addEventListener('click',func = function(e) {
+        ponto = {
+            x : e.clientX - rect.left,
+            y : e.clientY - rect.top
+        };
+
+        cliquePontos.push(ponto);
+
+        if(cliquePontos.length == 1){
+
+            //receber aqui o angulo da rotação
+            var angulo = 90;
+            angulo = angulo * (Math.PI / 180);
+
+             var matrizRotacao = [
+                 [Math.cos(angulo), - Math.sin(angulo), 0],
+                 [Math.sin(angulo), Math.cos(angulo), 0],
+                 [0, 0, 1]];
+
+            var dx = 0 - cliquePontos[0].x;
+            var dy = 0 - cliquePontos[0].y;
+
+            var matrizTranslacaoOrigem =
+                [[1, 0, dx],
+                    [0, 1, dy],
+                    [0, 0, 1]
+                ];
+
+            var matrizTranslacaoDestino =
+                [[1, 0, cliquePontos[0].x],
+                    [0, 1, cliquePontos[0].y],
+                    [0, 0, 1]
+                ];
+
+            listaObjetosSelecionados.forEach(function(objeto){
+                var objAux = calcula(objeto, matrizTranslacaoOrigem);
+
+                objAux = calcula(objAux, matrizRotacao);
+
+                objAux = calcula(objAux, matrizTranslacaoDestino);
+
+                listaObjetos.push(objAux);
+
+                listaObjetos = listaObjetos.filter(function (valor) {
+                     return valor.id != objeto.id;
+                });
+            });
+
+            limpaCanvas();
+            desenhaListaDeObjetos();
+
+            listaObjetosSelecionados = [];
+            cliquePontos = [];
+        }
+    } ,false);
+}
+
+
+function destacaPontos(obj,canvas){
+    console.log(obj)
+    var ctx = canvas.getContext('2d');
+    ctx.arc(obj[0].ponto1.x, obj[0].ponto1.x, 10, 0, 360, true);
+}
+
 function translacao(p1A, p2A, canvas, func){
     var cliquePontos = [];
-    var listaDeObjetosTransladados = [];
+    var rect = canvas.getBoundingClientRect();
 
     desenhaAreaSelecao(p1A, p2A, canvas, func);
 
@@ -224,7 +314,6 @@ function translacao(p1A, p2A, canvas, func){
 
     /* Pega ponto de referência e ponto destino */
     canvas.addEventListener('click',func = function(e) {
-        var rect = this.getBoundingClientRect();
 
         ponto = {
             x : e.clientX - rect.left,
@@ -242,25 +331,40 @@ function translacao(p1A, p2A, canvas, func){
                 [0, 0, 1]];
 
             listaObjetosSelecionados.forEach(function(objeto){
-                listaDeObjetosTransladados.push(multiplicaMatriz(objeto, matrizTranslacao));
+                listaObjetos.push(calcula(objeto, matrizTranslacao));
+
+                listaObjetos = listaObjetos.filter(function (valor) {
+                    return valor.id != objeto.id;
+                });
             });
-            console.log(listaDeObjetosTransladados);
 
-
-            //apaga do canvas objetos que estão la lista de objetos selecionados
-            //redesenha objetos da lista de objetos transladados
+            limpaCanvas();
+            desenhaListaDeObjetos();
 
             listaObjetosSelecionados = [];
-            listaDeObjetosTransladados = [];
             cliquePontos = [];
         }
     } ,false);
+}
+
+/*Desenha no canvas todos os objetos da lista de objetos atual*/
+function desenhaListaDeObjetos(){
+    listaObjetos.forEach(function (Obj) {
+        if(Obj.tipo == "linha"){
+            criaLinha(Obj.ponto1, Obj.ponto2, canvas, func);
+        } else if(Obj.tipo == "triangulo"){
+            criaTriangulo(Obj.ponto1, Obj.ponto2, Obj.ponto3, canvas, func);
+        } else if(Obj.tipo == "retangulo"){
+            criaRetangulo(Obj.ponto1, Obj.ponto2, canvas, func);
+        }
+    });
 }
 
 /*Desenha área de seleção*/
 function desenhaAreaSelecao(ponto1, ponto2, canvas, func){
     var contexto = canvas.getContext('2d');
 
+    contexto.fillStyle = "rgba(0,0,0,.1)";
     contexto.fillRect(
         ponto1.x,
         ponto1.y,
@@ -294,7 +398,7 @@ function selecionaObjetos(){
     listaObjetos.forEach(function (objeto, index, arr) {
         var flag = true;
         Object.keys(objeto).forEach(function (atributo, index, arr){
-           if(atributo != "tipo" && !contidoSelecao(objeto[atributo])){
+           if(atributo != "tipo" && atributo != "id" && !contidoSelecao(objeto[atributo])){
                flag = false;
            }
         });
@@ -315,11 +419,11 @@ function contidoSelecao(objeto){
         return true;
     }
 
-    return false;
+        return false;
 }
 
-/**/
-function multiplicaMatriz(Obj, mT){
+/*Efetua o cálculo da translção e retorna o objeto correto*/
+function calcula(Obj, mT){
     if(Obj.tipo == "linha"){
         a = [
              [Obj.ponto1.x, Obj.ponto2.x],
@@ -340,4 +444,70 @@ function multiplicaMatriz(Obj, mT){
         ];
     }
 
+    c = [];
+
+    for (i = 0; i < mT.length; i++) {
+        r = [];
+        for (j = 0; j < a[0].length; j++) {
+            s = 0;
+            for (k = 0; k < a.length; k++) {
+                s += mT[i][k] * a[k][j];
+            }
+            r.push(s);
+        }
+        c.push(r);
+    }
+
+    if(Obj.tipo == "linha"){
+        return {
+            tipo : "linha",
+            ponto1 : {
+                id: idObjetos++,
+                x: c[0][0],
+                y: c[1][0]
+            },
+            ponto2 : {
+                x: c[0][1],
+                y: c[1][1]
+            }
+        }
+    } else if(Obj.tipo == "triangulo"){
+        return {
+            id: idObjetos++,
+            tipo : "triangulo",
+            ponto1 : {
+                x: c[0][0],
+                y: c[1][0]
+            },
+            ponto2 : {
+                x: c[0][1],
+                y: c[1][1]
+            },
+            ponto3 : {
+                x: c[0][2],
+                y: c[1][2]
+            }
+        }
+    } else if(Obj.tipo == "retangulo"){
+        return {
+            id: idObjetos++,
+            tipo : "retangulo",
+            ponto1 : {
+                x: c[0][0],
+                y: c[1][0]
+            },
+            ponto2 : {
+                x: c[0][1],
+                y: c[1][1]
+            },
+            ponto3 : {
+                x: c[0][2],
+                y: c[1][2]
+            },
+            ponto4: {
+                x: c[0][3],
+                y: c[1][3]
+            }
+        }
+    }
 }
