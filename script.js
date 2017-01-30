@@ -8,6 +8,7 @@ var func;
 var areaSelecao;
 var botoes;
 var btnAtivo;
+
 /*Chamada da função Principal quando a página é carregada*/
 window.onload = function () {
     main();
@@ -75,16 +76,19 @@ function main() {
         habilitaFerramenta("rotacao");
         btnAtivo = btnRotacao;
         btnRotacao.className += ' btn-primary';
+
         /* Pega a area de selecao*/
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
             if (arrayPontos.length == 2) {
                 desenhaAreaSelecao(arrayPontos[0], arrayPontos[1], canvas, func);
-                /* Pega ponto de referência e ponto destino */
+
+                /* Pega ponto de referência*/
                 canvas.addEventListener('click', func = function (e) {
                     if (!pontoSelecionado) {
                         desenhaPonto(criaPonto(e), canvas);
                         document.getElementById('infoangulo').style.display = 'block';
+                        document.getElementById('infoangulo').style.position = 'absolute';
                     }
                 }, false);
             }
@@ -106,6 +110,7 @@ function main() {
                 desenhaAreaSelecao(arrayPontos[0], arrayPontos[1], canvas, func);
                 /* Pega ponto de referência e ponto destino */
                 document.getElementById('infoescala').style.display = 'block';
+                document.getElementById('infoescala').style.position = 'absolute';
             }
         }, false);
     }, false);
@@ -125,6 +130,7 @@ function main() {
 
 
 }
+
 function acaoCanvas(botao, qntd, tipo) {
     resetarFerramenta();
     botao.className += ' btn-primary';
@@ -133,7 +139,7 @@ function acaoCanvas(botao, qntd, tipo) {
         if (arrayPontos.length == qntd) {
             criaObjeto(arrayPontos, canvas, func, tipo);
             arrayPontos = [];
-            botao.className = btnLinha.className.replace('btn-primary', '');
+            botao.className = botao.className.replace('btn-primary', '');
         }
     }, false);
 }
@@ -195,12 +201,10 @@ function aplicarRotacao() {
 
     limpaCanvas();
     desenhaListaDeObjetos();
-
-    listaObjetosSelecionados = [];
-    pontoSelecionado = null;
     document.getElementById('infoangulo').style.display = 'none';
-    btnAtivo.className = btnAtivo.className.replace('btn-primary', '');
+    resetarFerramenta();
 
+    console.log("teste");
 }
 
 /*Função para habilitar a ferramenta*/
@@ -227,6 +231,7 @@ function desabilitaFerramenta(canvas, func) {
 function limpaCanvas() {
     var altera_canvas = document.getElementById("canvas");
     altera_canvas.width = altera_canvas.width;
+    // canvas.removeEventListener('click', func, false);
 }
 
 function criaObjeto(pontos, canvas, func, tipo) {
@@ -327,6 +332,8 @@ function translacao(p1A, p2A, canvas, func) {
 
             listaObjetosSelecionados = [];
             cliquePontos = [];
+
+            desabilitaFerramenta(canvas, func);
         }
     }, false);
 }
@@ -408,7 +415,6 @@ function calcula(Obj, mT) {
         matriz: c
     };
 }
-
 
 function montarMatrizEscala(x, y) {
     return [[x, 0, 0],

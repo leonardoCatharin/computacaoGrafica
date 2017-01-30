@@ -2,8 +2,35 @@
     background-color: white;
 }
 
-.container{
+#infoescala{
+    padding: 5px;
+    width: 200px!important;
+    text-align: center!important;
+    margin: 15px 0;
+    display:none;
+    z-index: 10!important;
+    right: 10px;
+    top: 83px;
+}
 
+#infoangulo{
+    padding: 5px;
+    width: 200px!important;
+    text-align: center!important;
+    margin: 15px 0;
+    display:none;
+    z-index: 10!important;
+    right: 10px;
+    top: 83px;
+}
+.my-input{
+    margin-bottom: 10px;
+    text-align: center!important;
+    width: 100%!important;
+}
+
+.container{
+    margin-top: 5px;
 }
 .top-transformacoes{
     overflow: hidden;
@@ -12,7 +39,7 @@
     padding-left: 0px!important;
 }
 .buttons{
-    margin-right: 48px;
+    margin-right: 50px;
     margin-bottom: 12px;
     text-align: center;
     float: left;
