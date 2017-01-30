@@ -32,7 +32,7 @@ function main() {
     canvas = document.getElementById('canvas');
 
     btnClear.addEventListener('click', function () {
-        limpaCanvas();
+        resetaCanvas();
         resetarFerramenta();
     }, false);
 
@@ -51,7 +51,9 @@ function main() {
         habilitaFerramenta("retangulo");
         btnRetangulo.className += ' btn-primary';
         canvas.addEventListener('click', func = function (e) {
-            arrayPontos.push(criaPonto(e));
+            var p = criaPonto(e);
+            arrayPontos.push(p);
+            desenhaPonto(p, canvas);
             if (arrayPontos.length == 2) {
                 var p3 = {
                         x: arrayPontos[0].x,
@@ -63,7 +65,6 @@ function main() {
                     },
                     newArr = [arrayPontos[0], p3, arrayPontos[1], p4];
                 criaObjeto(newArr, canvas, func, 'retangulo');
-                // criaRetangulo(arrayPontos[0], arrayPontos[1], canvas, func, rect);
                 arrayPontos = [];
                 btnRetangulo.className = btnLinha.className.replace('btn-primary', '');
             }
@@ -76,7 +77,6 @@ function main() {
         habilitaFerramenta("rotacao");
         btnAtivo = btnRotacao;
         btnRotacao.className += ' btn-primary';
-
         /* Pega a area de selecao*/
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
@@ -119,6 +119,8 @@ function main() {
 
     btnTranslacao.addEventListener('click', function () {
         habilitaFerramenta("translacao");
+        btnAtivo = btnTranslacao;
+        btnTranslacao.className += ' btn-primary';
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
             if (arrayPontos.length == 2) {
@@ -128,14 +130,18 @@ function main() {
         }, false);
     }, false);
 
-
+    btnZoom.addEventListener('click', function () {
+        zoomExtend(canvas);
+    }, false);
 }
 
 function acaoCanvas(botao, qntd, tipo) {
     resetarFerramenta();
     botao.className += ' btn-primary';
     canvas.addEventListener('click', func = function (e) {
-        arrayPontos.push(criaPonto(e));
+        var p = criaPonto(e);
+        arrayPontos.push(p);
+        desenhaPonto(p,canvas);
         if (arrayPontos.length == qntd) {
             criaObjeto(arrayPontos, canvas, func, tipo);
             arrayPontos = [];
@@ -202,15 +208,17 @@ function aplicarRotacao() {
     limpaCanvas();
     desenhaListaDeObjetos();
     document.getElementById('infoangulo').style.display = 'none';
+    desabilitaFerramenta(canvas, func);
     resetarFerramenta();
-
-    console.log("teste");
 }
 
 /*Função para habilitar a ferramenta*/
 function habilitaFerramenta(tool) {
-    if (tool == "linha" || tool == "triangulo" || tool == "retangulo" || tool == "translacao") {
+    if (tool == "linha" || tool == "triangulo" || tool == "retangulo") {
+        document.body.style.cursor = "pointer";
+    }else if(tool == "translacao" || tool == "rotacao" || tool == "escala"){
         document.body.style.cursor = "crosshair";
+
     }
 }
 
@@ -231,7 +239,14 @@ function desabilitaFerramenta(canvas, func) {
 function limpaCanvas() {
     var altera_canvas = document.getElementById("canvas");
     altera_canvas.width = altera_canvas.width;
-    // canvas.removeEventListener('click', func, false);
+    canvas.removeEventListener('click', func, false);
+}
+
+function resetaCanvas() {
+    var altera_canvas = document.getElementById("canvas");
+    altera_canvas.width = altera_canvas.width;
+    canvas.removeEventListener('click', func, false);
+    listaObjetos = [];
 }
 
 function criaObjeto(pontos, canvas, func, tipo) {
@@ -270,6 +285,7 @@ function rotacao(p1R, p2R, canvas, func) {
 
     desenhaAreaSelecao(p1R, p2R, canvas, func);
 
+    habilitaFerramenta("rotacao");
 
     /* Pega ponto de referência e ponto destino */
     canvas.addEventListener('click', func = function (e) {
@@ -303,12 +319,12 @@ function translacao(p1A, p2A, canvas, func) {
 
     /* Pega ponto de referência e ponto destino */
     canvas.addEventListener('click', func = function (e) {
-
         ponto = {
             x: e.clientX - rect.left,
             y: e.clientY - rect.top
         };
 
+        desenhaPonto(ponto, canvas);
         cliquePontos.push(ponto);
 
         if (cliquePontos.length == 2) {
@@ -334,6 +350,7 @@ function translacao(p1A, p2A, canvas, func) {
             cliquePontos = [];
 
             desabilitaFerramenta(canvas, func);
+            resetarFerramenta();
         }
     }, false);
 }
@@ -375,7 +392,6 @@ function desenhaAreaSelecao(ponto1, ponto2, canvas, func) {
     };
 
     selecionaObjetos();
-    desabilitaFerramenta(canvas, func);
 }
 
 /*Seleciona objetos que foram SELECIONADOS COMPLETAMENTE*/
@@ -456,4 +472,130 @@ function aplicarEscala() {
     listaObjetosSelecionados = [];
     document.getElementById('infoescala').style.display = 'none';
     btnAtivo.className = btnAtivo.className.replace('btn-primary', '');
+}
+
+function zoomExtend(canvas){
+
+    contexto = canvas.getContext('2d');
+
+    var arrayX = [];
+    var arrayY = [];
+
+    var xm = 999999999, ym = 999999999, xM = 0, yM = 0;
+    listaObjetos.forEach(function (objeto) {
+        Object.keys(objeto).forEach(function (atributo) {
+            if(atributo != "id" && atributo != "tipo" && atributo != "matriz"){
+              arrayX.push(parseInt(objeto[atributo].x));
+              arrayY.push(parseInt(objeto[atributo].y));
+            }
+        })
+    });
+
+    arrayX = arrayX.sort(function (a, b) {
+        return a - b;
+    });
+
+    arrayY = arrayY.sort(function (a, b) {
+        return a - b;
+    });
+
+    janela = {
+        p1 : null,
+        p2 : null,
+        p3 : null,
+        p4 : null
+    };
+
+    janela.p1 = {
+        x : arrayX[0] - (0.05 * canvas.width),
+        y : arrayY[0] - (0.05 * canvas.height)
+    };
+    janela.p2 = {
+        x : arrayX[arrayX.length - 1] + (0.05 * canvas.width),
+        y : arrayY[arrayY.length - 1] + (0.05 * canvas.height)
+    };
+    janela.p3 = {
+        x : janela.p1.x,
+        y : janela.p2.y
+    };
+    janela.p4 = {
+        x : janela.p2.x,
+        y : janela.p1.y
+    };
+
+    origem = {
+        x : 0,
+        y : 0
+    };
+
+    contexto.moveTo(janela.p1.x, janela.p1.y)
+    contexto.lineTo(janela.p3.x, janela.p3.y)
+
+    contexto.moveTo(janela.p3.x, janela.p3.y)
+    contexto.lineTo(janela.p2.x, janela.p2.y)
+
+    contexto.moveTo(janela.p2.x, janela.p2.y)
+    contexto.lineTo(janela.p4.x, janela.p4.y)
+
+    contexto.moveTo(janela.p4.x, janela.p4.y)
+    contexto.lineTo(janela.p1.x, janela.p1.y)
+
+    contexto.stroke();
+
+    aplicaZoomExtend(janela.p1, origem, canvas);
+}
+
+function aplicaZoomExtend() {
+    /*informações tranlação -x, -y*/
+    var dx = 0 - janela.p1.x;
+    var dy = 0 - janela.p1.y;
+    var matrizTranslacao = [
+        [1, 0, dx],
+        [0, 1, dy],
+        [0, 0, 1]
+    ];
+
+    /*informações mudança de escala*/
+    var sx = (canvas.width - 0) / (janela.p2.x - janela.p1.x);
+    var sy = (canvas.height - 0) / (janela.p2.y - janela.p1.y);
+    var matrizMudancaEscala = [
+        [sx, 0, 0],
+        [0, sy, 0],
+        [0, 0, 1]
+    ];
+
+    /*informações tranlação +x, +y*/
+    var dx = janela.p1.x;
+    var dy = janela.p1.y;
+    var matrizTranslacaoVolta = [
+        [1, 0, dx],
+        [0, 1, dy],
+        [0, 0, 1]
+    ];
+
+    newListaObjetosTransladados = [];
+    newListaObjetosEscala = [];
+    newListaObjetos = [];
+
+    listaObjetos.forEach(function (objeto) {
+        newListaObjetosTransladados.push(calcula(objeto, matrizTranslacao));
+    });
+
+    resetaCanvas();
+
+    newListaObjetosTransladados.forEach(function (objeto) {
+        newListaObjetosEscala.push(calcula(objeto, matrizMudancaEscala));
+    });
+
+    newListaObjetosEscala.forEach(function (objeto) {
+        newListaObjetos.push(calcula(objeto, matrizTranslacaoVolta));
+    });
+
+    listaObjetos = newListaObjetos;
+
+    newListaObjetosTransladados = [];
+    newListaObjetosEscala = [];
+    newListaObjetos = [];
+
+    desenhaListaDeObjetos();
 }

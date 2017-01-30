@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce8cd169-13a9-41d1-accc-ed602357a3b2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/estilo.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
@@ -26,23 +24,33 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="335" column="45" lean-forward="false" selection-start-line="335" selection-start-column="45" selection-end-line="335" selection-end-column="45" />
+            <state relative-caret-position="315">
+              <caret line="558" column="31" lean-forward="false" selection-start-line="558" selection-start-column="31" selection-end-line="558" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="n#!!block;n#main#0" expanded="false" />
+                <element signature="e#1103#1163#0" expanded="false" />
+                <element signature="e#1225#1311#0" expanded="false" />
+                <element signature="e#1377#1475#0" expanded="false" />
+                <element signature="e#1541#2446#0" expanded="false" />
+                <element signature="e#2510#3415#0" expanded="false" />
+                <element signature="e#3551#4253#0" expanded="false" />
+                <element signature="e#4391#4816#0" expanded="false" />
+                <element signature="e#4877#4912#0" expanded="false" />
                 <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+                <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
                 <element signature="n#!!block;n#criaPonto#0" expanded="false" />
                 <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
                 <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+                <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
                 <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-                <element signature="e#7064#7131#0" expanded="false" />
+                <element signature="e#7383#7450#0" expanded="false" />
+                <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
                 <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
                 <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
                 <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
                 <element signature="n#!!block;n#rotacao#0" expanded="false" />
                 <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-                <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+                <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
                 <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
                 <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
                 <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -56,8 +64,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+            <state relative-caret-position="120">
+              <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -94,9 +102,14 @@
       <find>cliquePontos</find>
       <find>infoangulo</find>
       <find>aplicar</find>
-      <find>info</find>
       <find>aplicarRotacao</find>
+      <find>acaoCa</find>
+      <find>teste</find>
       <find>desabilitaFerramenta</find>
+      <find>pontoSelecionado</find>
+      <find>info</find>
+      <find>K</find>
+      <find>2d</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -261,15 +274,15 @@
       <workItem from="1485268769497" duration="18112000" />
       <workItem from="1485528308433" duration="18801000" />
       <workItem from="1485712371717" duration="20613000" />
-      <workItem from="1485793073746" duration="3718000" />
+      <workItem from="1485793073746" duration="13752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73783000" />
+    <option name="totallyTimeSpent" value="83817000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17448117" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -298,7 +311,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -309,19 +322,29 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -347,19 +370,29 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -401,19 +434,29 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -457,19 +500,29 @@
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -503,19 +556,29 @@
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
@@ -543,8 +606,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="120">
+          <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -553,23 +616,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="335" column="45" lean-forward="false" selection-start-line="335" selection-start-column="45" selection-end-line="335" selection-end-column="45" />
+        <state relative-caret-position="315">
+          <caret line="558" column="31" lean-forward="false" selection-start-line="558" selection-start-column="31" selection-end-line="558" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#main#0" expanded="false" />
+            <element signature="e#1103#1163#0" expanded="false" />
+            <element signature="e#1225#1311#0" expanded="false" />
+            <element signature="e#1377#1475#0" expanded="false" />
+            <element signature="e#1541#2446#0" expanded="false" />
+            <element signature="e#2510#3415#0" expanded="false" />
+            <element signature="e#3551#4253#0" expanded="false" />
+            <element signature="e#4391#4816#0" expanded="false" />
+            <element signature="e#4877#4912#0" expanded="false" />
             <element signature="n#!!block;n#acaoCanvas#0" expanded="false" />
+            <element signature="n#!!block;n#resetarFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#criaPonto#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
             <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarRotacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#7064#7131#0" expanded="false" />
+            <element signature="e#7383#7450#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
             <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
             <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
             <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
             <element signature="n#!!block;n#rotacao#0" expanded="false" />
             <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
-            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
             <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
             <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
