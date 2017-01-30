@@ -84,11 +84,14 @@ function main() {
                 desenhaAreaSelecao(arrayPontos[0], arrayPontos[1], canvas, func);
 
                 /* Pega ponto de referência*/
+                canvas.removeEventListener('click', func, false);
+
                 canvas.addEventListener('click', func = function (e) {
                     if (!pontoSelecionado) {
                         desenhaPonto(criaPonto(e), canvas);
                         document.getElementById('infoangulo').style.display = 'block';
                         document.getElementById('infoangulo').style.position = 'absolute';
+                        canvas.removeEventListener('click', func, false);
                     }
                 }, false);
             }
@@ -138,19 +141,25 @@ function main() {
 function acaoCanvas(botao, qntd, tipo) {
     resetarFerramenta();
     botao.className += ' btn-primary';
+
+    console.log(arrayPontos.length,qntd);
     canvas.addEventListener('click', func = function (e) {
+        console.log(arrayPontos.length,qntd);
         var p = criaPonto(e);
         arrayPontos.push(p);
         desenhaPonto(p,canvas);
+        console.log(arrayPontos.length,qntd);
         if (arrayPontos.length == qntd) {
             criaObjeto(arrayPontos, canvas, func, tipo);
             arrayPontos = [];
             botao.className = botao.className.replace('btn-primary', '');
         }
     }, false);
+    console.log(arrayPontos.length,qntd);
 }
 
 function resetarFerramenta() {
+    canvas.removeEventListener('click', func, false);
     listaObjetosSelecionados = [];
     pontoSelecionado = null;
     arrayPontos = [];
@@ -236,7 +245,7 @@ function desabilitaFerramenta(canvas, func) {
 }
 
 /*Função utilizada para resetar o Canvas*/
-function limpaCanvas() {
+function limpaCanvas(func) {
     var altera_canvas = document.getElementById("canvas");
     altera_canvas.width = altera_canvas.width;
     canvas.removeEventListener('click', func, false);
@@ -565,8 +574,8 @@ function aplicaZoomExtend() {
     ];
 
     /*informações tranlação +x, +y*/
-    var dx = janela.p1.x;
-    var dy = janela.p1.y;
+    var dx = 0;
+    var dy = 0;
     var matrizTranslacaoVolta = [
         [1, 0, dx],
         [0, 1, dy],
