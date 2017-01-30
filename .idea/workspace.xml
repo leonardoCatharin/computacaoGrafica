@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce8cd169-13a9-41d1-accc-ed602357a3b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/estilo.css" afterPath="$PROJECT_DIR$/estilo.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
@@ -26,36 +24,34 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="302" column="38" lean-forward="false" selection-start-line="302" selection-start-column="38" selection-end-line="302" selection-end-column="38" />
+            <state relative-caret-position="465">
+              <caret line="145" column="31" lean-forward="false" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#810#840#0" expanded="false" />
-                <element signature="e#900#1357#0" expanded="false" />
-                <element signature="e#1422#1897#0" expanded="false" />
-                <element signature="e#1962#2433#0" expanded="false" />
-                <element signature="e#3014#3469#0" expanded="false" />
+                <element signature="e#1539#2470#0" expanded="false" />
+                <element signature="e#1836#1948#0" expanded="false" />
+                <element signature="e#1975#2087#0" expanded="false" />
+                <element signature="e#2534#3364#0" expanded="false" />
+                <element signature="e#3500#4119#0" expanded="false" />
+                <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+                <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+                <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
                 <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-                <element signature="e#3846#3914#0" expanded="false" />
+                <element signature="e#6992#7059#0" expanded="false" />
                 <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
-                <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
-                <element signature="n#!!block;n#criaTriangulo#0" expanded="false" />
-                <element signature="n#!!block;n#criaRetangulo#0" expanded="false" />
-                <element signature="e#5746#5788#0" expanded="false" />
-                <element signature="n#!!block;n#translacao#0" expanded="false" />
-                <element signature="n#!!block;n#contidoSelecao#0" expanded="false" />
+                <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+                <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+                <element signature="n#!!block;n#rotacao#0" expanded="false" />
+                <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+                <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+                <element signature="e#10368#10418#0" expanded="false" />
+                <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+                <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+                <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
                 <element signature="n#!!block;n#calcula#0" expanded="false" />
+                <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+                <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="estilo.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/estilo.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -63,11 +59,12 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,8 +94,9 @@
       <find>p1A</find>
       <find>areaSelecao</find>
       <find>selecionaObjetos</find>
-      <find>calcula</find>
       <find>Math</find>
+      <find>calcula</find>
+      <find>cliquePontos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,6 +141,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -157,8 +157,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -169,6 +167,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -246,20 +245,21 @@
       <workItem from="1485207773693" duration="5536000" />
       <workItem from="1485268769497" duration="18112000" />
       <workItem from="1485528308433" duration="18801000" />
+      <workItem from="1485712371717" duration="20548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49452000" />
+    <option name="totallyTimeSpent" value="70000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17217524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17140661" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -287,6 +287,59 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1539#2470#0" expanded="false" />
+            <element signature="e#1836#1948#0" expanded="false" />
+            <element signature="e#1975#2087#0" expanded="false" />
+            <element signature="e#2534#3364#0" expanded="false" />
+            <element signature="e#3500#4119#0" expanded="false" />
+            <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
+            <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
+            <element signature="e#6992#7059#0" expanded="false" />
+            <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
+            <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+            <element signature="n#!!block;n#rotacao#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="e#10368#10418#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
+            <element signature="n#!!block;n#calcula#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/estilo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -301,21 +354,29 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#810#840#0" expanded="false" />
-            <element signature="e#900#1357#0" expanded="false" />
-            <element signature="e#1422#1897#0" expanded="false" />
-            <element signature="e#1962#2433#0" expanded="false" />
-            <element signature="e#3014#3469#0" expanded="false" />
+            <element signature="e#1539#2470#0" expanded="false" />
+            <element signature="e#1836#1948#0" expanded="false" />
+            <element signature="e#1975#2087#0" expanded="false" />
+            <element signature="e#2534#3364#0" expanded="false" />
+            <element signature="e#3500#4119#0" expanded="false" />
+            <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#3846#3914#0" expanded="false" />
+            <element signature="e#6992#7059#0" expanded="false" />
             <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
-            <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
-            <element signature="n#!!block;n#criaTriangulo#0" expanded="false" />
-            <element signature="n#!!block;n#criaRetangulo#0" expanded="false" />
-            <element signature="e#5746#5788#0" expanded="false" />
-            <element signature="n#!!block;n#translacao#0" expanded="false" />
-            <element signature="n#!!block;n#contidoSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+            <element signature="n#!!block;n#rotacao#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="e#10368#10418#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -327,6 +388,7 @@
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -338,6 +400,7 @@
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -356,21 +419,29 @@
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#810#840#0" expanded="false" />
-            <element signature="e#900#1357#0" expanded="false" />
-            <element signature="e#1422#1897#0" expanded="false" />
-            <element signature="e#1962#2433#0" expanded="false" />
-            <element signature="e#3014#3469#0" expanded="false" />
+            <element signature="e#1539#2470#0" expanded="false" />
+            <element signature="e#1836#1948#0" expanded="false" />
+            <element signature="e#1975#2087#0" expanded="false" />
+            <element signature="e#2534#3364#0" expanded="false" />
+            <element signature="e#3500#4119#0" expanded="false" />
+            <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#3846#3914#0" expanded="false" />
+            <element signature="e#6992#7059#0" expanded="false" />
             <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
-            <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
-            <element signature="n#!!block;n#criaTriangulo#0" expanded="false" />
-            <element signature="n#!!block;n#criaRetangulo#0" expanded="false" />
-            <element signature="e#5746#5788#0" expanded="false" />
-            <element signature="n#!!block;n#translacao#0" expanded="false" />
-            <element signature="n#!!block;n#contidoSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+            <element signature="n#!!block;n#rotacao#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="e#10368#10418#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,6 +453,7 @@
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -400,28 +472,36 @@
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#810#840#0" expanded="false" />
-            <element signature="e#900#1357#0" expanded="false" />
-            <element signature="e#1422#1897#0" expanded="false" />
-            <element signature="e#1962#2433#0" expanded="false" />
-            <element signature="e#3014#3469#0" expanded="false" />
+            <element signature="e#1539#2470#0" expanded="false" />
+            <element signature="e#1836#1948#0" expanded="false" />
+            <element signature="e#1975#2087#0" expanded="false" />
+            <element signature="e#2534#3364#0" expanded="false" />
+            <element signature="e#3500#4119#0" expanded="false" />
+            <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#3846#3914#0" expanded="false" />
+            <element signature="e#6992#7059#0" expanded="false" />
             <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
-            <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
-            <element signature="n#!!block;n#criaTriangulo#0" expanded="false" />
-            <element signature="n#!!block;n#criaRetangulo#0" expanded="false" />
-            <element signature="e#5746#5788#0" expanded="false" />
-            <element signature="n#!!block;n#translacao#0" expanded="false" />
-            <element signature="n#!!block;n#contidoSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+            <element signature="n#!!block;n#rotacao#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="e#10368#10418#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="705">
           <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
           <folding />
         </state>
@@ -429,36 +509,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="302" column="38" lean-forward="false" selection-start-line="302" selection-start-column="38" selection-end-line="302" selection-end-column="38" />
+        <state relative-caret-position="465">
+          <caret line="145" column="31" lean-forward="false" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#810#840#0" expanded="false" />
-            <element signature="e#900#1357#0" expanded="false" />
-            <element signature="e#1422#1897#0" expanded="false" />
-            <element signature="e#1962#2433#0" expanded="false" />
-            <element signature="e#3014#3469#0" expanded="false" />
+            <element signature="e#1539#2470#0" expanded="false" />
+            <element signature="e#1836#1948#0" expanded="false" />
+            <element signature="e#1975#2087#0" expanded="false" />
+            <element signature="e#2534#3364#0" expanded="false" />
+            <element signature="e#3500#4119#0" expanded="false" />
+            <element signature="n#!!block;n#criaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizRotacao#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizTranslacao#0" expanded="false" />
             <element signature="n#!!block;n#habilitaFerramenta#0" expanded="false" />
-            <element signature="e#3846#3914#0" expanded="false" />
+            <element signature="e#6992#7059#0" expanded="false" />
             <element signature="n#!!block;n#desabilitaFerramenta#0" expanded="false" />
-            <element signature="n#!!block;n#limpaCanvas#0" expanded="false" />
-            <element signature="n#!!block;n#criaTriangulo#0" expanded="false" />
-            <element signature="n#!!block;n#criaRetangulo#0" expanded="false" />
-            <element signature="e#5746#5788#0" expanded="false" />
-            <element signature="n#!!block;n#translacao#0" expanded="false" />
-            <element signature="n#!!block;n#contidoSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#criaObjeto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaMatriz#0" expanded="false" />
+            <element signature="n#!!block;n#rotacao#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaPonto#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaListaDeObjetos#0" expanded="false" />
+            <element signature="e#10368#10418#0" expanded="false" />
+            <element signature="n#!!block;n#desenhaAreaSelecao#0" expanded="false" />
+            <element signature="n#!!block;n#selecionaObjetos#0" expanded="false" />
+            <element signature="n#!!block;n#contidoSelecaoNovo#0" expanded="false" />
             <element signature="n#!!block;n#calcula#0" expanded="false" />
+            <element signature="n#!!block;n#montarMatrizEscala#0" expanded="false" />
+            <element signature="n#!!block;n#aplicarEscala#0" expanded="false" />
           </folding>
         </state>
       </provider>
