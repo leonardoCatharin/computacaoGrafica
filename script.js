@@ -14,7 +14,8 @@ window.onload = function () {
     main();
 };
 
-/*Função Principal*/
+/*Função Principal
+* Contém os Listener para todos os botões da interface com o usuário*/
 function main() {
     var btnClear = document.getElementById('BtnClear');
     var btnLinha = document.getElementById('BtnLinha');
@@ -138,6 +139,7 @@ function main() {
     }, false);
 }
 
+/*Gerencia o fluxo das ações no canvas. Identifica e 'chama' a ferramenta escolhida pelo usuário*/
 function acaoCanvas(botao, qntd, tipo) {
     resetarFerramenta();
     botao.className += ' btn-primary';
@@ -153,6 +155,7 @@ function acaoCanvas(botao, qntd, tipo) {
     }, false);
 }
 
+/*Reseta a ferramenta para outras poderem ser utilidas e o fluxo não ficar na ferramenta em questão*/
 function resetarFerramenta() {
     canvas.removeEventListener('click', func, false);
     listaObjetosSelecionados = [];
@@ -163,6 +166,7 @@ function resetarFerramenta() {
     });
 }
 
+/*Construtor de pontos*/
 function criaPonto(e) {
     return {
         x: e.layerX,
@@ -170,6 +174,7 @@ function criaPonto(e) {
     };
 }
 
+/*Construtor da matriz de rotação*/
 function montarMatrizRotacao(angulo) {
     return [
         [Math.cos(angulo), -Math.sin(angulo), 0],
@@ -177,14 +182,15 @@ function montarMatrizRotacao(angulo) {
         [0, 0, 1]];
 }
 
+/*Construtor da matriz de translação*/
 function montarMatrizTranslacao(x, y) {
     return [[1, 0, x],
         [0, 1, y],
         [0, 0, 1]];
 }
 
+/*Função utilizada para a aplicação da rotação*/
 function aplicarRotacao() {
-    //receber aqui o angulo da rotação
     var value = document.getElementById("entry").value * -1;
 
     var p = pontoSelecionado,
@@ -246,13 +252,15 @@ function limpaCanvas(func) {
     canvas.removeEventListener('click', func, false);
 }
 
-function    resetaCanvas() {
+/*Reseta canvas + listaObjetos*/
+function resetaCanvas() {
     var altera_canvas = document.getElementById("canvas");
     altera_canvas.width = altera_canvas.width;
     canvas.removeEventListener('click', func, false);
     listaObjetos = [];
 }
 
+/*Cria objeto (id + matriz) baseado nos pontos informados*/
 function criaObjeto(pontos, canvas, func, tipo) {
     var obj = {
         id: idObjetos++,
@@ -270,6 +278,7 @@ function criaObjeto(pontos, canvas, func, tipo) {
     desabilitaFerramenta(canvas, func);
 }
 
+/*Desenha matriz de pontos no canvas*/
 function desenhaMatriz(matriz) {
     var last = matriz[0].length - 1,
         contexto = canvas.getContext('2d');
@@ -283,6 +292,7 @@ function desenhaMatriz(matriz) {
     contexto.stroke();
 }
 
+/*Aplica rotação partindo um ponto de referência + ângulo informado*/
 function rotacao(p1R, p2R, canvas, func) {
     var cliquePontos = [];
     var rect = canvas.getBoundingClientRect();
@@ -304,6 +314,7 @@ function rotacao(p1R, p2R, canvas, func) {
     }, false);
 }
 
+/*Desenha ponto vermelho para demarcação de referência*/
 var pontoSelecionado;
 function desenhaPonto(p, canvas) {
     pontoSelecionado = p;
@@ -313,6 +324,7 @@ function desenhaPonto(p, canvas) {
     contexto.stroke();
 }
 
+/*Configura e aplica a translação*/
 function translacao(p1A, p2A, canvas, func) {
     var cliquePontos = [];
     var rect = canvas.getBoundingClientRect();
@@ -409,6 +421,7 @@ function selecionaObjetos() {
     });
 }
 
+/*Verifica se ponto está contido na seleção*/
 function contidoSelecaoNovo(x, y) {
     return (x >= areaSelecao.ponto1.x) && (x <= areaSelecao.ponto2.x) &&
         (y >= areaSelecao.ponto1.y) && (y <= areaSelecao.ponto2.y);
@@ -436,12 +449,14 @@ function calcula(Obj, mT) {
     };
 }
 
+/*Construtor da matriz de mudança de escala*/
 function montarMatrizEscala(x, y) {
     return [[x, 0, 0],
         [0, y, 0],
         [0, 0, 1]];
 }
 
+/*Função responsável por aplicar a escala*/
 function aplicarEscala() {
     var valueX = document.getElementById("valueX").value || 0,
         valueY = document.getElementById("valueY").value || 0;
@@ -476,10 +491,13 @@ function aplicarEscala() {
     listaObjetosSelecionados = [];
     document.getElementById('infoescala').style.display = 'none';
     btnAtivo.className = btnAtivo.className.replace('btn-primary', '');
+    desabilitaFerramenta(canvas, func);
+    resetarFerramenta();
 }
 
+/*Encontra os ponto mínimo e máximo da janela
+* Chama a função de aplicação do zoom*/
 function zoomExtend() {
-
     contexto = canvas.getContext('2d');
 
     var arrayX = [];
@@ -487,12 +505,6 @@ function zoomExtend() {
 
     var xm = 999999999, ym = 999999999, xM = 0, yM = 0;
     listaObjetos.forEach(function (objeto) {
-        // Object.keys(objeto).forEach(function (atributo) {
-        //     // if (atributo != "id" && atributo != "tipo" && atributo != "matriz") {
-        //     //     arrayX.push(parseInt(objeto[atributo].x));
-        //     //     arrayY.push(parseInt(objeto[atributo].y));
-        //     // }
-        // })
         arrayX = arrayX.concat(objeto.matriz[0]);
         arrayY = arrayY.concat(objeto.matriz[1]);
     });
@@ -505,10 +517,6 @@ function zoomExtend() {
         return a - b;
     });
 
-
-    console.log(listaObjetos)
-    console.log(arrayX,arrayY);
-
     janela = {
         p1: null,
         p2: null,
@@ -517,8 +525,8 @@ function zoomExtend() {
     };
 
     janela.p1 = {
-        x: arrayX[0] - (0.05 * canvas.width),
-        y: arrayY[0] - (0.05 * canvas.height)
+        x: arrayX[0] - (0.1 * canvas.width),
+        y: arrayY[0] - (0.1 * canvas.height)
     };
     janela.p2 = {
         x: arrayX[arrayX.length - 1] + (0.05 * canvas.width),
@@ -538,14 +546,12 @@ function zoomExtend() {
         y: 0
     };
 
-    contexto.stroke();
-
     aplicaZoomExtend(janela.p1, origem, canvas);
 }
 
+/*Função utilizada para aplicar a translação e mudança de escala com razão de aspecto para o Canvas (ViewPort)*/
 function aplicaZoomExtend() {
     /*informações tranlação -x, -y*/
-
     var dx = 0 - janela.p1.x;
     var dy = 0 - janela.p1.y;
     var matrizTranslacao = [
@@ -554,13 +560,13 @@ function aplicaZoomExtend() {
         [0, 0, 1]
     ];
 
+    /*informações mudança de escala*/
     var aspectoJanela = (janela.p2.x - janela.p1.x) / (janela.p2.y - janela.p1.y),
         aspectoCanvas = canvas.width / canvas.height;
 
     var uMax = canvas.width,
         vMax = canvas.height;
 
-    /*informações mudança de escala*/
     if (aspectoJanela > aspectoCanvas) {
         vMax = canvas.width / aspectoJanela;
     } else {
@@ -575,50 +581,14 @@ function aplicaZoomExtend() {
         [0, 0, 1]
     ];
 
-    /*informações tranlação +x, +y*/
-    // var dx = 0;
-    // var dy = 0;
-    // var matrizTranslacaoVolta = [
-    //     [1, 0, dx],
-    //     [0, 1, dy],
-    //     [0, 0, 1]
-    // ];
-
-    newListaObjetosTransladados = [];
-    newListaObjetosEscala = [];
-    newListaObjetos = [];
-
-
-
-
-    console.log(listaObjetos,matrizTranslacao,matrizMudancaEscala);
-
     var result = listaObjetos.map(function (objeto) {
         return calcula(objeto, matrizTranslacao);
     }).map(function (objeto) {
         return calcula(objeto, matrizMudancaEscala);
     });
-
-    // listaObjetos.forEach(function (objeto) {
-    //     newListaObjetosTransladados.push(calcula(objeto, matrizTranslacao));
-    // });
-
     resetaCanvas();
-
     listaObjetos = result;
-    //
-    // newListaObjetosTransladados.forEach(function (objeto) {
-    //     newListaObjetosEscala.push(calcula(objeto, matrizMudancaEscala));
-    // });
-    // newListaObjetosEscala.forEach(function (objeto) {
-    //     newListaObjetos.push(calcula(objeto, matrizTranslacaoVolta));
-    // });
-    //
-    // listaObjetos = newListaObjetos;
-    //
-    // newListaObjetosTransladados = [];
-    // newListaObjetosEscala = [];
-    // newListaObjetos = [];
-
     desenhaListaDeObjetos();
+    resetarFerramenta();
+    desabilitaFerramenta(canvas, func);
 }
