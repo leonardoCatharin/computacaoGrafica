@@ -1,7 +1,6 @@
 .corpo{
     background-color: white;
 }
-
 #infoescala{
     padding: 5px;
     width: 200px!important;
@@ -12,7 +11,6 @@
     right: 10px;
     top: 83px;
 }
-
 #infoangulo{
     padding: 5px;
     width: 200px!important;
@@ -28,7 +26,6 @@
     text-align: center!important;
     width: 100%!important;
 }
-
 .container{
     margin-top: 5px;
 }
@@ -56,7 +53,6 @@
     width: 35px;
     height: 35px;
 }
-
 .buttons button i{
     font-size: 20px;
 }
@@ -66,11 +62,22 @@
     -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 }
-
 .texto-observacao{
     font-size: 10px;
 }
-
 .m-t-b{
     margin-top: 25px;
+}
+.comentario{
+    position: absolute;
+    z-index: 10;
+    right: 5px;
+    bottom: 5px;
+    width: 198px;
+    height: 350px;
+    border:1px solid #8c8c8c;
+    background-color: #ccc;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
 }

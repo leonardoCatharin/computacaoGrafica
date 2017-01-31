@@ -8,6 +8,7 @@ var func;
 var areaSelecao;
 var botoes;
 var btnAtivo;
+var comentHelp;
 
 /*Chamada da função Principal quando a página é carregada*/
 window.onload = function () {
@@ -31,23 +32,28 @@ function main() {
         btnTranslacao, btnRotacao, btnEscala];
 
     canvas = document.getElementById('canvas');
+    comentHelp = document.getElementById('coments');
 
     btnClear.addEventListener('click', function () {
+        comentHelp.innerText = "Selecione uma ferramenta!";
         resetaCanvas();
         resetarFerramenta();
     }, false);
 
     btnLinha.addEventListener('click', function () {
+        comentHelp.innerText = "Clique em dois pontos quaisquer no canvas para desenhar a linha!";
         habilitaFerramenta("linha");
         acaoCanvas(btnLinha, 2, 'linha');
     }, false);
 
     btnTriangulo.addEventListener('click', function () {
+        comentHelp.innerText = "Clique em três pontos quaisquer no canvas para desenhar o triângulo!";
         habilitaFerramenta("triangulo");
         acaoCanvas(btnTriangulo, 3, 'triangulo');
     }, false);
 
     btnRetangulo.addEventListener('click', function () {
+        comentHelp.innerText = "Clique em dois pontos quaisquer no canvas para desenhar o retângulo! \n\n Esses dois pontos formarão a diagonal do retângulo.";
         resetarFerramenta();
         habilitaFerramenta("retangulo");
         btnRetangulo.className += ' btn-primary';
@@ -74,6 +80,9 @@ function main() {
     }, false);
 
     btnRotacao.addEventListener('click', function () {
+        comentHelp.innerHTML = "Dê dois cliques formando a diagonal da área de seleção! <br> <br> " +
+            "<font color='red'>IMPORTANTE: </font> A diagonal da área de seleção deve ser sempre do CANTO ESQUERDO SUPERIOR para o CANTO DIREITO INFERIOR. <br> <br>" +
+            "<font color='red'>IMPORTANTE: </font> A rotação só será aplicada nos objetos que estiverem COMPLETAMENTE dentro da área de seleção.";
         resetarFerramenta();
         habilitaFerramenta("rotacao");
         btnAtivo = btnRotacao;
@@ -82,6 +91,8 @@ function main() {
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
             if (arrayPontos.length == 2) {
+                comentHelp.innerText = "1.  Selecione o ponto de referência para a rotação! \n\n " +
+                    "2.  Informe o ângulo de rotação seguindo a regra da mão direita.";
                 desenhaAreaSelecao(arrayPontos[0], arrayPontos[1], canvas, func);
 
                 /* Pega ponto de referência*/
@@ -102,6 +113,9 @@ function main() {
     btnAplicarRotacao.addEventListener('click', aplicarRotacao, false);
 
     btnEscala.addEventListener('click', function () {
+        comentHelp.innerHTML = "Dê dois cliques formando a diagonal da área de seleção! <br> <br> " +
+            "<font color='red'>IMPORTANTE: </font> A diagonal da área de seleção deve ser sempre do CANTO ESQUERDO SUPERIOR para o CANTO DIREITO INFERIOR. <br> <br>" +
+            "<font color='red'>IMPORTANTE: </font> A mudança de escala só será aplicada nos objetos que estiverem COMPLETAMENTE dentro da área de seleção.";
         resetarFerramenta();
         habilitaFerramenta("escala");
         btnAtivo = btnEscala;
@@ -111,6 +125,8 @@ function main() {
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
             if (arrayPontos.length == 2) {
+                comentHelp.innerText = "Informe os valores de mudança de escala \n\n " +
+                    "IMPORTANTE: Sx = 1, Sy = 1 indicam que o objeto manterá as mesmas medidas";
                 desenhaAreaSelecao(arrayPontos[0], arrayPontos[1], canvas, func);
                 /* Pega ponto de referência e ponto destino */
                 document.getElementById('infoescala').style.display = 'block';
@@ -122,12 +138,17 @@ function main() {
     btnAplicarEscala.addEventListener('click', aplicarEscala, false);
 
     btnTranslacao.addEventListener('click', function () {
+        comentHelp.innerHTML = "Dê dois cliques formando a diagonal da área de seleção! <br> <br> " +
+            "<font color='red'>IMPORTANTE: </font> A diagonal da área de seleção deve ser sempre do CANTO ESQUERDO SUPERIOR para o CANTO DIREITO INFERIOR. <br> <br>" +
+            "<font color='red'>IMPORTANTE: </font> A translação só será aplicada nos objetos que estiverem COMPLETAMENTE dentro da área de seleção.";
         habilitaFerramenta("translacao");
         btnAtivo = btnTranslacao;
         btnTranslacao.className += ' btn-primary';
         canvas.addEventListener('click', func = function (e) {
             arrayPontos.push(criaPonto(e));
             if (arrayPontos.length == 2) {
+                comentHelp.innerText = "Selecione o ponto de referência para a translação! \n\n " +
+                    "Em seguida selecione o ponto de destino para transladar os objetos.";
                 translacao(arrayPontos[0], arrayPontos[1], canvas, func);
                 arrayPontos = [];
             }
@@ -243,6 +264,7 @@ document.onkeypress = function (evt) {
 function desabilitaFerramenta(canvas, func) {
     canvas.removeEventListener('click', func, false);
     document.body.style.cursor = "auto";
+    comentHelp.innerText = "Selecione uma ferramenta!";
 }
 
 /*Função utilizada para resetar o Canvas*/
@@ -330,7 +352,6 @@ function translacao(p1A, p2A, canvas, func) {
     var rect = canvas.getBoundingClientRect();
 
     desenhaAreaSelecao(p1A, p2A, canvas, func);
-
     habilitaFerramenta("translacao");
 
     /* Pega ponto de referência e ponto destino */
